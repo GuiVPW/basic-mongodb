@@ -13,4 +13,11 @@ Performing creating and reading operations for a simple dog document 🐶.
 - Create a .env file and add the key *MONGODB_URL* with the url of your mongodb database instance.
   - Ex: `MONGODB_URL="mongodb://root:admin@localhost:27017"`
 
-- Run `yarn start` to run execute the app, creating, reading, and deleting the dogs ✔️
+- Run `yarn dev` to execute the app in development, creating, reading, and deleting the dogs ✔️
+- Run `yarn build` to build, transpile and compile the app into vanilla JS ✔️
+- Run `yarn start` to execute the built app ✔️
+
+<br />
+----
+
+Made by [Guilherme Vieira](https://github.com/GuiVPW) ❤️
