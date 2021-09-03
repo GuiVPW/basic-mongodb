@@ -2,7 +2,7 @@
 
 ## 🎯 Objective
 This app intends to provide a simple way to connect to a MongoDB instance.\
-Performing creating, reading and deleting transactions for a simple dog collection 🐶.
+Performing creating and reading operations for a simple dog document 🐶.
 
 <br />
 
