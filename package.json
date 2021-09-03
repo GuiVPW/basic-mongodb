@@ -6,6 +6,10 @@
 	"author": "Guilherme Vieira <guilherme.paiva@avenuecode.com>",
 	"license": "MIT",
 	"private": false,
+	"scripts": {
+		"dev": "ts-node-dev src/main.ts",
+		"start": "ts-node src/main.ts"
+	},
 	"dependencies": {
 		"faker": "^5.5.3",
 		"mongodb": "^4.1.1",
@@ -21,6 +25,7 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"git-commit-msg-linter": "^3.2.8",
 		"prettier": "^2.3.2",
-		"ts-node-dev": "^1.1.8"
+		"ts-node-dev": "^1.1.8",
+		"typescript": "^4.4.2"
 	}
 }
