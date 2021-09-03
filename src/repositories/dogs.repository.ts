@@ -21,14 +21,4 @@ export class DogsRepository {
 
 		return true
 	}
-
-	async deleteMany(): Promise<boolean> {
-		const deleteMany = await this.databaseService.client?.deleteMany({})
-
-		if (!deleteMany) {
-			return false
-		}
-
-		return true
-	}
 }

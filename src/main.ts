@@ -7,9 +7,9 @@ const main = async () => {
 	await dbInstance.connectDb()
 
 	const dogRepository = new DogsRepository(dbInstance)
+
 	await dogRepository.createMany(dogs)
 	const createdDogs = await dogRepository.getMany()
-	await dogRepository.deleteMany()
 
 	await dbInstance.disconnectDB()
 
