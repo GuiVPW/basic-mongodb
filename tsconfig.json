@@ -7,7 +7,6 @@
 		],
 		"moduleResolution": "node",
 		"rootDir": ".",
-		"baseUrl": "src",
 		"noImplicitAny": true,
 		"isolatedModules": true,
 		"allowSyntheticDefaultImports": true,
