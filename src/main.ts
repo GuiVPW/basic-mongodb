@@ -2,22 +2,18 @@ import { dogs } from './constants'
 import { MongoDBService } from './database'
 import { DogsRepository } from './repositories'
 
-const dbInstance = new MongoDBService()
-const dogRepository = new DogsRepository(dbInstance)
-
 const main = async () => {
+	const dbInstance = new MongoDBService()
 	await dbInstance.connectDb()
 
+	const dogRepository = new DogsRepository(dbInstance)
 	await dogRepository.createMany(dogs)
 	const createdDogs = await dogRepository.getMany()
 	await dogRepository.deleteMany()
 
+	await dbInstance.disconnectDB()
+
 	return createdDogs
 }
 
-main()
-	.then(console.info)
-	.catch(console.error)
-	.finally(async () => {
-		await dbInstance.disconnectDB()
-	})
+main().then(console.info).catch(console.error)
