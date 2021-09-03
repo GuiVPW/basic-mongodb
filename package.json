@@ -7,7 +7,9 @@
 	"license": "MIT",
 	"private": false,
 	"scripts": {
-		"start": "env-cmd ts-node src/main.ts"
+		"dev": "env-cmd ts-node src/main.ts",
+		"build": "rm -rf build && tsc --project tsconfig.production.json",
+		"start": "env-cmd node build/main"
 	},
 	"dependencies": {
 		"faker": "^5.5.3",
