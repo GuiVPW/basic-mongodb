@@ -7,8 +7,9 @@ export class DogsRepository {
 	}
 
 	async getMany(): Promise<DogModel[]> {
-		const dogs = (await this.databaseService.client?.find({}).toArray()) as DogModel[]
-		return dogs
+		const dogs = await this.databaseService.client?.find({}).toArray()
+
+		return dogs as DogModel[]
 	}
 
 	async createMany(input: DogModel[]): Promise<boolean> {
