@@ -6,11 +6,12 @@ export class MongoDBService extends MongoClient {
 	public client?: Collection<Document>
 
 	constructor() {
-		super(configurations.mongodb.url)
+		super(configurations.mongodb.url, { serverSelectionTimeoutMS: 5000 })
 	}
 
 	async connectDb(): Promise<void> {
 		await this.connect()
+
 		const db = this.db(configurations.mongodb.db)
 
 		this.dbInstance = db
