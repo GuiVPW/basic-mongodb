@@ -13,8 +13,6 @@ export class MongoDBService extends MongoClient {
 		await this.connect()
 		const db = this.db(configurations.mongodb.db)
 
-		console.info('Connected successfully to server')
-
 		this.dbInstance = db
 	}
 
