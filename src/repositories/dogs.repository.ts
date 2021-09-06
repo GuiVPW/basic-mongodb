@@ -1,7 +1,12 @@
+import { getCollection } from '../database'
 import { DogModel, MongoCollection } from '../models'
 
 export class DogsRepository {
-	constructor(private readonly databaseService: MongoCollection) {}
+	private readonly databaseService: MongoCollection
+
+	constructor() {
+		this.databaseService = getCollection('dogs')
+	}
 
 	async getMany(): Promise<DogModel[]> {
 		const dogs = await this.databaseService.find({}).toArray()

@@ -1,12 +1,11 @@
 import { dogs } from './constants'
-import { connect, disconnect, getCollection } from './database'
+import { connect, disconnect } from './database'
 import { DogsRepository } from './repositories'
 
 const main = async () => {
 	await connect()
 
-	const collection = await getCollection('dogs')
-	const dogRepository = new DogsRepository(collection)
+	const dogRepository = new DogsRepository()
 
 	await dogRepository.createMany(dogs)
 
