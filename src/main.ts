@@ -1,17 +1,18 @@
 import { dogs } from './constants'
-import { MongoDBService } from './database'
+import { connect, disconnect, getCollection } from './database'
 import { DogsRepository } from './repositories'
 
 const main = async () => {
-	const dbInstance = new MongoDBService()
-	await dbInstance.connectDb()
+	await connect()
 
-	const dogRepository = new DogsRepository(dbInstance)
+	const collection = await getCollection('dogs')
+	const dogRepository = new DogsRepository(collection)
 
 	await dogRepository.createMany(dogs)
+
 	const createdDogs = await dogRepository.getMany()
 
-	await dbInstance.disconnectDB()
+	await disconnect()
 
 	return createdDogs
 }
