@@ -1,27 +1,13 @@
-import { Collection, Db, Document, MongoClient } from 'mongodb'
+import { MongoClient } from 'mongodb'
+
 import { configurations } from '../config'
+import { MongoCollection } from '../models'
 
-export class MongoDBService extends MongoClient {
-	private dbInstance!: Db
-	public client?: Collection<Document>
+const client = new MongoClient(configurations.mongodb.url)
+export const db = client.db(configurations.mongodb.db)
 
-	constructor() {
-		super(configurations.mongodb.url, { serverSelectionTimeoutMS: 5000 })
-	}
+export const connect = async (): Promise<MongoClient> => await client.connect()
+export const disconnect = async (): Promise<void> => await client.close()
 
-	async connectDb(): Promise<void> {
-		await this.connect()
-
-		const db = this.db(configurations.mongodb.db)
-
-		this.dbInstance = db
-	}
-
-	async disconnectDB(): Promise<void> {
-		await this.close()
-	}
-
-	getCollection(collection: string): void {
-		this.client = this.dbInstance.collection(collection)
-	}
-}
+export const getCollection = async (collection: string): Promise<MongoCollection> =>
+	client.db(configurations.mongodb.db).collection(collection)
