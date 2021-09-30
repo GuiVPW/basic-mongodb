@@ -17,7 +17,6 @@ Performing creating and reading operations for a simple dog document 🐶.
 - Run `yarn build` to build, transpile and compile the app into vanilla JS ✔️
 - Run `yarn start` to execute the built app ✔️
 
-<br />
 ----
 
 Made by [Guilherme Vieira](https://github.com/GuiVPW) ❤️
